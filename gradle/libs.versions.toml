@@ -1,0 +1,11 @@
+[versions]
+jda = "5.0.0-beta.2"
+kotlin = "1.7.22"
+mongo = "4.8.0"
+
+[libraries]
+jda = { module = "net.dv8tion:JDA", version.ref = "jda" }
+mongo = { module = "org.litote.kmongo:kmongo", version.ref = "mongo"}
+
+[plugins]
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
