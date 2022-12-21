@@ -1,5 +1,5 @@
 ## Aggregator
-Aggregator forwards messages from channels which follow announcement channels to a singular target channel in order to circumvent Discord's 10 webhook per channel limitation.
+Aggregator forwards messages from channels which follow announcement channels to a singular target channel in order to circumvent Discord's 15 webhook per channel limitation.
 
 Using Aggregator is simple. Simply use /redirect set and specify the channel and the target channel.
 
