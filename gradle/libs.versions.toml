@@ -3,10 +3,12 @@ jda = "5.0.0-beta.2"
 kotlin = "1.7.22"
 mongo = "4.8.0"
 shadow = "7.1.2"
+webhooks = "0.8.2"
 
 [libraries]
 jda = { module = "net.dv8tion:JDA", version.ref = "jda" }
 mongo = { module = "org.litote.kmongo:kmongo", version.ref = "mongo"}
+webhooks = { module = "club.minnced:discord-webhooks", version.ref = "webhooks" }
 
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
