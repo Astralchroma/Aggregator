@@ -1,5 +1,7 @@
 package io.github.petercrawley.aggregator
 
+import club.minnced.discord.webhook.external.JDAWebhookClient
+import club.minnced.discord.webhook.send.WebhookMessageBuilder
 import com.mongodb.ConnectionString
 import com.mongodb.MongoClientSettings
 import io.github.petercrawley.aggregator.commands.HelpCommand
@@ -13,10 +15,10 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 import net.dv8tion.jda.api.interactions.commands.build.SlashCommandData
 import net.dv8tion.jda.api.requests.GatewayIntent
-import org.litote.kmongo.*
 import org.litote.kmongo.KMongo.createClient
-import java.net.HttpURLConnection
-import java.net.URL
+import org.litote.kmongo.contains
+import org.litote.kmongo.ensureIndex
+import org.litote.kmongo.getCollection
 import kotlin.system.exitProcess
 
 object Aggregator : ListenerAdapter() {
@@ -96,20 +98,18 @@ object Aggregator : ListenerAdapter() {
 
 			val webhooks = targetChannel.retrieveWebhooks().complete()
 			val webhook = webhooks.find { it.ownerAsUser?.idLong == jda.selfUser.idLong } ?: targetChannel.createWebhook("Aggregator Target").complete()
+			val webhookClient = JDAWebhookClient.from(webhook)
 
-			val connection = URL(webhook.url).openConnection() as HttpURLConnection
-			connection.requestMethod = "POST"
-			connection.setRequestProperty("Content-Type", "application/json")
-			connection.doOutput = true
+			val message = WebhookMessageBuilder()
+				.setUsername(event.author.name)
+				.setAvatarUrl(event.author.avatarUrl)
+				.setContent(event.message.contentRaw)
+				.apply {
+					event.message.attachments.forEach { addFile(it.fileName, it.proxy.download().join()) }
+				}
+				.build()
 
-			val stream = connection.outputStream
-			stream.write("{\"username\":\"${event.author.name}\",\"avatar_url\":\"${event.author.avatarUrl}\",\"content\":\"${event.message.contentRaw}\"}".toByteArray())
-			stream.flush()
-			stream.close()
-
-			connection.responseCode
-
-			connection.disconnect()
+			webhookClient.send(message)
 		}
 	}
 

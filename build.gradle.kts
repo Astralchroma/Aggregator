@@ -14,6 +14,7 @@ repositories {
 dependencies {
 	implementation(libs.jda) { exclude("opus-java") }
 	implementation(libs.mongo)
+	implementation(libs.webhooks)
 }
 
 kotlin.jvmToolchain(17)
