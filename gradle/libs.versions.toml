@@ -1,6 +1,6 @@
 [versions]
 jda = "5.0.0-beta.2"
-kotlin = "1.7.22"
+kotlin = "1.8.0"
 mongo = "4.8.0"
 shadow = "7.1.2"
 webhooks = "0.8.2"
