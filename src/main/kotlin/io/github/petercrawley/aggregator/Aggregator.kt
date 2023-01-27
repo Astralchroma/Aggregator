@@ -1,6 +1,7 @@
 package io.github.petercrawley.aggregator
 
 import club.minnced.discord.webhook.external.JDAWebhookClient
+import club.minnced.discord.webhook.send.WebhookEmbed
 import club.minnced.discord.webhook.send.WebhookMessageBuilder
 import com.mongodb.ConnectionString
 import com.mongodb.MongoClientSettings
@@ -106,6 +107,19 @@ object Aggregator : ListenerAdapter() {
 				.setContent(event.message.contentRaw)
 				.apply {
 					event.message.attachments.forEach { addFile(it.fileName, it.proxy.download().join()) }
+					event.message.embeds.forEach {
+						addEmbeds(WebhookEmbed(
+							it.timestamp,
+							it.colorRaw,
+							it.description,
+							it.thumbnail?.url,
+							it.image?.url,
+							it.footer?.text?.let { it1 -> WebhookEmbed.EmbedFooter(it1, it.footer?.iconUrl) },
+							it.title?.let { it1 -> WebhookEmbed.EmbedTitle(it1, it.url) },
+							it.author?.name?.let { it1 -> WebhookEmbed.EmbedAuthor(it1, it.author?.iconUrl, it.author?.url) },
+							it.fields.map { it1 -> WebhookEmbed.EmbedField(it1.isInline, it1.name ?: "", it1.value ?: "") }
+						))
+					}
 				}
 				.build()
 
