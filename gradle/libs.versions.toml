@@ -1,5 +1,5 @@
 [versions]
-jda = "5.0.0-beta.3"
+jda = "5.0.0-beta.5"
 kotlin = "1.8.10"
 mongo = "4.8.0"
 shadow = "8.1.0"
