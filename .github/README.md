@@ -10,10 +10,11 @@ Aggregator uses the Gradle build system, and as such building the project is eas
 
 The bot is written in Kotlin and uses MongoDB for data storage. There are not many contribution guidelines, just keep code clean.
 
-For simplicity, instead of using a configuration file, Aggregator gets its credentials from environment variables:
+For simplicity, instead of using a configuration file, Aggregator gets its credentials and configuration from environment variables:
 
-| Name           | Description                                                                                                                                      | Example Value                            |
-|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|
-| DISCORD_TOKEN  | A bot authentication token provided by Discord. [See Discord Documentation](https://discord.com/developers/docs/getting-started#creating-an-app) | *Lots of letters, numbers, and symbols.* |
-| MONGO_URI      | A MongoDB Connection URI. [See MongoDB Documentation](https://www.mongodb.com/docs/manual/reference/connection-string)                           | `mongo://username:password@host:27017`   |
-| MONGO_DATABASE | The name of the MongoDB Database.                                                                                                                | `aggregator`                             |
+| Name            | Description                                                                                                                                            | Example Value                            |
+|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|
+| DISCORD_TOKEN   | A bot authentication token provided by Discord. [See Discord Documentation](https://discord.com/developers/docs/getting-started#creating-an-app)       | *Lots of letters, numbers, and symbols.* |
+| MONGO_URI       | A MongoDB Connection URI. [See MongoDB Documentation](https://www.mongodb.com/docs/manual/reference/connection-string)                                 | `mongo://username:password@host:27017`   |
+| MONGO_DATABASE  | The name of the MongoDB Database.                                                                                                                      | `aggregator`                             |
+| OWNER_SNOWFLAKE | Optional, required for /data. Discord ID of the owner of the bot. [See Discord Documentation](https://support.discord.com/hc/en-us/articles/206346498) | `521031433972744193`                     |

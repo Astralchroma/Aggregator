@@ -5,6 +5,7 @@ import io.github.petercrawley.aggregator.annotations.Default
 import io.github.petercrawley.aggregator.annotations.EnabledFor
 import io.github.petercrawley.aggregator.annotations.Parameter
 import io.github.petercrawley.aggregator.annotations.Subcommand
+import net.dv8tion.jda.api.entities.Message.Attachment
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.interactions.commands.DefaultMemberPermissions
@@ -91,11 +92,15 @@ abstract class CommandClass {
 						event.getOption(parameterName)?.asChannel as? TextChannel
 							?: throw NullPointerException("Unable to get TextChannel for $parameterName.")
 					}
+					Attachment::class -> Pair(OptionType.ATTACHMENT) { event: SlashCommandInteractionEvent ->
+						event.getOption(parameterName)?.asAttachment
+							?: throw NullPointerException("Unable to get Attachment for $parameterName")
+					}
 					else -> throw Exception("Unsupported type ${jvmErasure.jvmName}")
 				}
 
-			val optionData = OptionData(type, parameterName, parameterMeta.description, parameter.isOptional)
-				.setChannelTypes(*parameterMeta.channelTypes)
+			var optionData = OptionData(type, parameterName, parameterMeta.description, parameter.isOptional)
+			if (type == OptionType.CHANNEL) optionData = optionData.setChannelTypes(*parameterMeta.channelTypes)
 
 			Pair(optionData, accessor)
 		}
