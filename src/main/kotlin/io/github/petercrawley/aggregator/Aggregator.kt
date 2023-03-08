@@ -5,6 +5,7 @@ import club.minnced.discord.webhook.send.WebhookEmbed
 import club.minnced.discord.webhook.send.WebhookMessageBuilder
 import com.mongodb.ConnectionString
 import com.mongodb.MongoClientSettings
+import io.github.petercrawley.aggregator.commands.DataCommand
 import io.github.petercrawley.aggregator.commands.HelpCommand
 import io.github.petercrawley.aggregator.commands.RedirectCommand
 import io.github.petercrawley.aggregator.commands.UptimeCommand
@@ -39,6 +40,7 @@ object Aggregator : ListenerAdapter() {
 	private val token = getVariable("DISCORD_TOKEN")
 	private val connectionString = getVariable("MONGO_URI")
 	private val databaseName = getVariable("MONGO_DATABASE")
+	val botOwnerSnowflake = System.getenv()["OWNER_SNOWFLAKE"]
 
 	private val jda = JDABuilder.createLight(token)
 		.setEnabledIntents(listOf(
@@ -74,6 +76,7 @@ object Aggregator : ListenerAdapter() {
 			commandDataList.add(commandData)
 		}
 
+		registerCommand(DataCommand())
 		registerCommand(HelpCommand())
 		registerCommand(RedirectCommand())
 		registerCommand(UptimeCommand())

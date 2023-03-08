@@ -4,12 +4,15 @@ kotlin = "1.8.10"
 mongo = "4.8.0"
 shadow = "8.1.0"
 webhooks = "0.8.2"
+json = "1.4.1"
 
 [libraries]
 jda = { module = "net.dv8tion:JDA", version.ref = "jda" }
 mongo = { module = "org.litote.kmongo:kmongo", version.ref = "mongo"}
 webhooks = { module = "club.minnced:discord-webhooks", version.ref = "webhooks" }
+json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "json" }
 
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 shadow = { id = "com.github.johnrengelman.shadow", version.ref = "shadow" }
+serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
