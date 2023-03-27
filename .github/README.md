@@ -3,7 +3,7 @@ Aggregator forwards messages from channels which follow announcement channels to
 
 Using Aggregator is simple. Simply use /redirect set and specify the channel and the target channel.
 
-**Links:** [Bot Invite](https://discord.com/api/oauth2/authorize?client_id=1034850407450693714&permissions=536871936&scope=bot) / [Discord Server](https://discord.gg/kYFZtajTdx) / [GitHub](https://github.com/Peter-Crawley/Aggregator) / [Documentation](https://tinyurl.com/2dumcd5k)
+**Links:** [Bot Invite](https://discord.com/api/oauth2/authorize?client_id=1034850407450693714&permissions=536871936&scope=bot) / [Discord Server](https://discord.gg/kYFZtajTdx) / [GitHub](https://github.com/Astralchroma/Aggregator) / [Documentation](https://tinyurl.com/2dumcd5k)
 
 ### Development and Self-Hosting
 Aggregator uses the Gradle build system, and as such building the project is easy as using `./gradlew build` (Linux) or `gradlew.bat` (Windows). Users who want to self-host the bot are expected to build it themselves, no pre-built jar files will be provided.
