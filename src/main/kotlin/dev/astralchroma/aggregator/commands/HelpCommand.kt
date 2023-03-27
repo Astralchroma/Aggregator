@@ -17,7 +17,7 @@ Aggregator forwards messages from channels which follow announcement channels to
 
 Using Aggregator is simple. Simply use </redirect set:1055163258102886490> and specify the channel and the target channel.
 
-**Links:** [Bot Invite](https://discord.com/api/oauth2/authorize?client_id=1034850407450693714&permissions=536871936&scope=bot) / [Discord Server](https://discord.gg/kYFZtajTdx) / [GitHub](https://github.com/Peter-Crawley/Aggregator) / [Documentation](https://tinyurl.com/2dumcd5k)
+**Links:** [Bot Invite](https://discord.com/api/oauth2/authorize?client_id=1034850407450693714&permissions=536871936&scope=bot) / [Discord Server](https://discord.gg/kYFZtajTdx) / [GitHub](https://github.com/Astralchroma/Aggregator) / [Documentation](https://tinyurl.com/2dumcd5k)
 		""".trimIndent(),
 		color = 0x7f7fff
 	)).queue()
