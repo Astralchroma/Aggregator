@@ -1,12 +1,12 @@
-package io.github.petercrawley.aggregator.commands
+package dev.astralchroma.aggregator.commands
 
-import io.github.petercrawley.aggregator.Aggregator
-import io.github.petercrawley.aggregator.CommandClass
-import io.github.petercrawley.aggregator.annotations.Command
-import io.github.petercrawley.aggregator.annotations.Parameter
-import io.github.petercrawley.aggregator.annotations.Subcommand
-import io.github.petercrawley.aggregator.data.Data
-import io.github.petercrawley.aggregator.messageEmbed
+import dev.astralchroma.aggregator.Aggregator
+import dev.astralchroma.aggregator.CommandClass
+import dev.astralchroma.aggregator.annotations.Command
+import dev.astralchroma.aggregator.annotations.Parameter
+import dev.astralchroma.aggregator.annotations.Subcommand
+import dev.astralchroma.aggregator.data.Data
+import dev.astralchroma.aggregator.messageEmbed
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json

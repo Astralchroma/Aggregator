@@ -22,5 +22,5 @@ dependencies {
 kotlin.jvmToolchain(17)
 
 application {
-	mainClass.set("io.github.petercrawley.aggregator.Aggregator")
+	mainClass.set("dev.astralchroma.aggregator.Aggregator")
 }

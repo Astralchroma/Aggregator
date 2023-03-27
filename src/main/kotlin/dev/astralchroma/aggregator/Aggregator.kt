@@ -1,15 +1,15 @@
-package io.github.petercrawley.aggregator
+package dev.astralchroma.aggregator
 
 import club.minnced.discord.webhook.external.JDAWebhookClient
 import club.minnced.discord.webhook.send.WebhookEmbed
 import club.minnced.discord.webhook.send.WebhookMessageBuilder
 import com.mongodb.ConnectionString
 import com.mongodb.MongoClientSettings
-import io.github.petercrawley.aggregator.commands.DataCommand
-import io.github.petercrawley.aggregator.commands.HelpCommand
-import io.github.petercrawley.aggregator.commands.RedirectCommand
-import io.github.petercrawley.aggregator.commands.UptimeCommand
-import io.github.petercrawley.aggregator.database.TargetConfiguration
+import dev.astralchroma.aggregator.commands.DataCommand
+import dev.astralchroma.aggregator.commands.HelpCommand
+import dev.astralchroma.aggregator.commands.RedirectCommand
+import dev.astralchroma.aggregator.commands.UptimeCommand
+import dev.astralchroma.aggregator.database.TargetConfiguration
 import net.dv8tion.jda.api.JDABuilder
 import net.dv8tion.jda.api.entities.Message
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent

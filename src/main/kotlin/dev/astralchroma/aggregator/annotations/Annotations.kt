@@ -1,4 +1,4 @@
-package io.github.petercrawley.aggregator.annotations
+package dev.astralchroma.aggregator.annotations
 
 import net.dv8tion.jda.api.Permission
 import net.dv8tion.jda.api.entities.channel.ChannelType

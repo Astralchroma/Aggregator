@@ -1,6 +1,6 @@
-package io.github.petercrawley.aggregator.data
+package dev.astralchroma.aggregator.data
 
-import io.github.petercrawley.aggregator.database.TargetConfiguration
+import dev.astralchroma.aggregator.database.TargetConfiguration
 import kotlinx.serialization.Serializable
 
 @Serializable

@@ -1,4 +1,4 @@
-package io.github.petercrawley.aggregator
+package dev.astralchroma.aggregator
 
 import net.dv8tion.jda.api.entities.EmbedType
 import net.dv8tion.jda.api.entities.MessageEmbed

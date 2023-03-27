@@ -1,9 +1,9 @@
-package io.github.petercrawley.aggregator.commands
+package dev.astralchroma.aggregator.commands
 
-import io.github.petercrawley.aggregator.CommandClass
-import io.github.petercrawley.aggregator.messageEmbed
-import io.github.petercrawley.aggregator.annotations.Command
-import io.github.petercrawley.aggregator.annotations.Default
+import dev.astralchroma.aggregator.CommandClass
+import dev.astralchroma.aggregator.messageEmbed
+import dev.astralchroma.aggregator.annotations.Command
+import dev.astralchroma.aggregator.annotations.Default
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 
 @Command("help", "Returns information about Aggregator.")

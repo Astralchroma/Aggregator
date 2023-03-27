@@ -1,10 +1,10 @@
-package io.github.petercrawley.aggregator
+package dev.astralchroma.aggregator
 
-import io.github.petercrawley.aggregator.annotations.Command
-import io.github.petercrawley.aggregator.annotations.Default
-import io.github.petercrawley.aggregator.annotations.EnabledFor
-import io.github.petercrawley.aggregator.annotations.Parameter
-import io.github.petercrawley.aggregator.annotations.Subcommand
+import dev.astralchroma.aggregator.annotations.Command
+import dev.astralchroma.aggregator.annotations.Default
+import dev.astralchroma.aggregator.annotations.EnabledFor
+import dev.astralchroma.aggregator.annotations.Parameter
+import dev.astralchroma.aggregator.annotations.Subcommand
 import net.dv8tion.jda.api.entities.Message.Attachment
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
