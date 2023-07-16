@@ -6,6 +6,7 @@ import dev.astralchroma.aggregator.annotations.Command
 import dev.astralchroma.aggregator.annotations.Parameter
 import dev.astralchroma.aggregator.annotations.Subcommand
 import dev.astralchroma.aggregator.data.Data
+import dev.astralchroma.aggregator.database.TargetConfiguration
 import dev.astralchroma.aggregator.messageEmbed
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.encodeToString
@@ -29,7 +30,7 @@ class DataCommand : CommandClass() {
 			return
 		}
 
-		val data = Data(Aggregator.targetConfiguration.find().toList().toTypedArray())
+		val data = Data(Aggregator.targetConfiguration.find().toList().map(TargetConfiguration::toExport).toTypedArray())
 
 		event.replyFiles(FileUpload.fromData(Json.encodeToString(data).toByteArray(), "data.json"))
 			.setEphemeral(true)
@@ -59,7 +60,7 @@ class DataCommand : CommandClass() {
 						continue
 					}
 
-					Aggregator.targetConfiguration.insertOne(configuration)
+					Aggregator.targetConfiguration.insertOne(configuration.toDatabase)
 					response += "- Added configuration for ${configuration.targetChannel}\n"
 				}
 			}
