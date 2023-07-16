@@ -127,7 +127,7 @@ object Aggregator : ListenerAdapter() {
 		val configurations = targetConfiguration.find(TargetConfiguration::sourceChannels contains event.channel.idLong)
 
 		for (configuration in configurations) {
-			val targetChannel = event.guild.getTextChannelById(configuration.targetChannel) ?: continue
+			val targetChannel = event.guild.getTextChannelById(configuration._id) ?: continue
 
 			val webhooks = targetChannel.retrieveWebhooks().complete()
 			val webhook = webhooks.find { it.ownerAsUser?.idLong == jda.selfUser.idLong } ?: targetChannel.createWebhook("Aggregator Target").complete()

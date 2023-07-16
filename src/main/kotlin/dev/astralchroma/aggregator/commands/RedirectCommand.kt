@@ -27,7 +27,7 @@ class RedirectCommand : CommandClass() {
 		@Parameter("channel", "Channel", ChannelType.TEXT) channel: TextChannel,
 		@Parameter("target", "Target Channel", ChannelType.TEXT) target: TextChannel
 	) {
-		val targetConfiguration = Aggregator.targetConfiguration.findOne(TargetConfiguration::targetChannel eq target.idLong)
+		val targetConfiguration = Aggregator.targetConfiguration.findOne(TargetConfiguration::_id eq target.idLong)
 
 		when (targetConfiguration == null) {
 			true -> Aggregator.targetConfiguration.insertOne(TargetConfiguration(target.idLong, mutableListOf(channel.idLong), event.guild!!.idLong))
@@ -47,7 +47,7 @@ class RedirectCommand : CommandClass() {
 		@Parameter("channel", "Channel", ChannelType.TEXT) channel: TextChannel,
 		@Parameter("target", "Target Channel", ChannelType.TEXT) target: TextChannel
 	) {
-		val targetConfiguration = Aggregator.targetConfiguration.findOne(TargetConfiguration::targetChannel eq target.idLong)
+		val targetConfiguration = Aggregator.targetConfiguration.findOne(TargetConfiguration::_id eq target.idLong)
 
 		if (targetConfiguration == null) {
 			event.reply("No forwarding configuration exists for ${target.asMention}.").queue()
@@ -55,7 +55,7 @@ class RedirectCommand : CommandClass() {
 		}
 
 		when (targetConfiguration.sourceChannels.size == 1) {
-			true -> Aggregator.targetConfiguration.deleteOne(TargetConfiguration::targetChannel eq target.idLong)
+			true -> Aggregator.targetConfiguration.deleteOne(TargetConfiguration::_id eq target.idLong)
 			false -> {
 				targetConfiguration.sourceChannels.remove(channel.idLong)
 				Aggregator.targetConfiguration.updateOne(targetConfiguration)
@@ -75,8 +75,8 @@ class RedirectCommand : CommandClass() {
 			fields.add(
 				MessageEmbed.Field(
 					"**Target:**",
-					targetConfiguration.sourceChannels.joinToString("\n", "<#${targetConfiguration.targetChannel}>\n**Sources:**\n") { "<#$it>" },
-				true
+					targetConfiguration.sourceChannels.joinToString("\n", "<#${targetConfiguration._id}>\n**Sources:**\n") { "<#$it>" },
+					true
 				)
 			)
 		}
