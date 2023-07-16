@@ -8,7 +8,7 @@ Using Aggregator is simple. Simply use /redirect set and specify the channel and
 ### Development and Self-Hosting
 Aggregator uses the Gradle build system, and as such building the project is easy as using `./gradlew build` (Linux) or `gradlew.bat` (Windows). Users who want to self-host the bot are expected to build it themselves, no pre-built jar files will be provided.
 
-The bot is written in Kotlin and uses MongoDB for data storage. There are not many contribution guidelines, just keep code clean.
+~~The bot is written in Kotlin and uses MongoDB for data storage. There are not many contribution guidelines, just keep code clean.~~ *Yea, that lasted.*
 
 For simplicity, instead of using a configuration file, Aggregator gets its credentials and configuration from environment variables:
 
