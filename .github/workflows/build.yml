@@ -16,7 +16,7 @@ jobs:
       image: ghcr.io/graalvm/native-image:22.3.2
     steps:
       - name: Install build essentials
-        run: microdnf install git tar findutils
+        run: microdnf install git tar findutils -y
       - uses: actions/checkout@v3
         with:
           fetch-depth: 1
