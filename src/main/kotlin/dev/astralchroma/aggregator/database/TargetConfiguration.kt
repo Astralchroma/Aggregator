@@ -1,16 +1,13 @@
 package dev.astralchroma.aggregator.database
 
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class TargetConfiguration(@SerialName("_id") val targetChannel: Long, val sourceChannels: MutableList<Long>, val server: Long) {
-	val toExport: TargetConfigurationExport
-		get() = TargetConfigurationExport(targetChannel, sourceChannels, server)
+data class TargetConfiguration(val _id: Long, val sourceChannels: MutableList<Long>, val server: Long) {
+	fun toExport() = TargetConfigurationExport(_id, sourceChannels, server)
 }
 
 @Serializable
 data class TargetConfigurationExport(val targetChannel: Long, val sourceChannels: MutableList<Long>, val server: Long) {
-	val toDatabase: TargetConfiguration
-		get() = TargetConfiguration(targetChannel, sourceChannels, server)
+	fun toDatabase() = TargetConfiguration(targetChannel, sourceChannels, server)
 }

@@ -60,7 +60,7 @@ class DataCommand : CommandClass() {
 						continue
 					}
 
-					Aggregator.targetConfiguration.insertOne(configuration.toDatabase)
+					Aggregator.targetConfiguration.insertOne(configuration.toDatabase())
 					response += "- Added configuration for ${configuration.targetChannel}\n"
 				}
 			}

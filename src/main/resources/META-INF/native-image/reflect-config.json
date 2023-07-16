@@ -109,6 +109,7 @@
   {
 	"name": "dev.astralchroma.aggregator.database.TargetConfiguration",
 	"allPublicFields": true,
+	"allPublicMethods": true,
 	"methods": [
 	  {
 		"name": "<init>",
