@@ -1,10 +1,6 @@
 package dev.astralchroma.aggregator
 
-import dev.astralchroma.aggregator.annotations.Command
-import dev.astralchroma.aggregator.annotations.Default
-import dev.astralchroma.aggregator.annotations.EnabledFor
-import dev.astralchroma.aggregator.annotations.Parameter
-import dev.astralchroma.aggregator.annotations.Subcommand
+import dev.astralchroma.aggregator.annotations.*
 import net.dv8tion.jda.api.entities.Message.Attachment
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
@@ -14,16 +10,20 @@ import net.dv8tion.jda.api.interactions.commands.build.Commands
 import net.dv8tion.jda.api.interactions.commands.build.OptionData
 import net.dv8tion.jda.api.interactions.commands.build.SlashCommandData
 import net.dv8tion.jda.api.interactions.commands.build.SubcommandData
+import java.lang.invoke.MethodHandles
 import kotlin.reflect.KClass
 import kotlin.reflect.KFunction
 import kotlin.reflect.KParameter
 import kotlin.reflect.full.findAnnotation
 import kotlin.reflect.full.hasAnnotation
 import kotlin.reflect.full.memberFunctions
+import kotlin.reflect.jvm.javaMethod
 import kotlin.reflect.jvm.jvmErasure
 import kotlin.reflect.jvm.jvmName
 
 abstract class CommandClass {
+	private val lookup = MethodHandles.lookup()
+
 	fun constructCommandData(): Pair<SlashCommandData, Map<String, (SlashCommandInteractionEvent) -> Unit>> {
 		// Base command name and description
 		val commandMeta: Command = this::class.findAnnotation()
@@ -96,6 +96,7 @@ abstract class CommandClass {
 						event.getOption(parameterName)?.asAttachment
 							?: throw NullPointerException("Unable to get Attachment for $parameterName")
 					}
+
 					else -> throw Exception("Unsupported type ${jvmErasure.jvmName}")
 				}
 
@@ -105,8 +106,10 @@ abstract class CommandClass {
 			Pair(optionData, accessor)
 		}
 
+		val handle = lookup.unreflect(function.javaMethod)
+
 		return Pair(optionData.mapNotNull { it.first }) { event: SlashCommandInteractionEvent ->
-			function.call(*optionData.map { it.second(event) }.toTypedArray())
+			handle.invokeWithArguments(*optionData.map { it.second(event) }.toTypedArray())
 		}
 	}
 }
