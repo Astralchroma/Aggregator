@@ -1,0 +1,136 @@
+[
+  {
+	"name": "net.dv8tion.jda.api.entities.Guild[]",
+	"unsafeAllocated": true
+  },
+  {
+	"name": "net.dv8tion.jda.api.entities.channel.Channel[]",
+	"unsafeAllocated": true
+  },
+  {
+	"name": "net.dv8tion.jda.api.entities.channel.concrete.Category[]",
+	"unsafeAllocated": true
+  },
+  {
+	"name": "net.dv8tion.jda.api.entities.channel.concrete.ForumChannel[]",
+	"unsafeAllocated": true
+  },
+  {
+	"name": "net.dv8tion.jda.api.entities.channel.concrete.VoiceChannel[]",
+	"unsafeAllocated": true
+  },
+  {
+	"name": "net.dv8tion.jda.api.entities.channel.concrete.TextChannel[]",
+	"unsafeAllocated": true
+  },
+  {
+	"name": "net.dv8tion.jda.api.entities.channel.concrete.NewsChannel[]",
+	"unsafeAllocated": true
+  },
+  {
+	"name": "net.dv8tion.jda.api.entities.channel.concrete.ThreadChannel[]",
+	"unsafeAllocated": true
+  },
+  {
+	"name": "net.dv8tion.jda.api.entities.channel.concrete.PrivateChannel[]",
+	"unsafeAllocated": true
+  },
+  {
+	"name": "net.dv8tion.jda.api.entities.channel.concrete.StageChannel[]",
+	"unsafeAllocated": true
+  },
+  {
+	"name": "net.dv8tion.jda.api.entities.channel.forums.ForumTag[]",
+	"unsafeAllocated": true
+  },
+  {
+	"name": "net.dv8tion.jda.api.entities.emoji.RichCustomEmoji[]",
+	"unsafeAllocated": true
+  },
+  {
+	"name": "net.dv8tion.jda.api.entities.Message[]",
+	"unsafeAllocated": true
+  },
+  {
+	"name": "net.dv8tion.jda.api.entities.Member[]",
+	"unsafeAllocated": true
+  },
+  {
+	"name": "net.dv8tion.jda.api.entities.Role[]",
+	"unsafeAllocated": true
+  },
+  {
+	"name": "net.dv8tion.jda.api.entities.sticker.GuildSticker[]",
+	"unsafeAllocated": true
+  },
+  {
+	"name": "net.dv8tion.jda.api.entities.User[]",
+	"unsafeAllocated": true
+  },
+  {
+	"name": "net.dv8tion.jda.api.managers.AudioManager[]",
+	"unsafeAllocated": true
+  },
+  {
+	"name": "net.dv8tion.jda.api.entities.ThreadMember[]",
+	"unsafeAllocated": true
+  },
+  {
+	"name": "net.dv8tion.jda.api.entities.ScheduledEvent[]",
+	"unsafeAllocated": true
+  },
+  {
+	"name": "java.util.concurrent.ConcurrentHashMap",
+	"methods": [
+	  {
+		"name": "<init>",
+		"parameterTypes": []
+	  }
+	]
+  },
+  {
+	"name": "java.util.HashSet",
+	"methods": [
+	  {
+		"name": "<init>",
+		"parameterTypes": []
+	  }
+	]
+  },
+  {
+	"name": "java.util.HashMap",
+	"methods": [
+	  {
+		"name": "<init>",
+		"parameterTypes": []
+	  }
+	]
+  },
+  {
+	"name": "dev.astralchroma.aggregator.database.TargetConfiguration",
+	"allPublicFields": true,
+	"methods": [
+	  {
+		"name": "<init>",
+		"parameterTypes": [
+		  "long",
+		  "java.util.List",
+		  "long"
+		]
+	  },
+	  {
+		"name": "getServer",
+		"parameterTypes": []
+	  }
+	]
+  },
+  {
+	"name": "dev.astralchroma.aggregator.database.TargetConfiguration$Companion",
+	"methods": [
+	  {
+		"name": "serializer",
+		"parameterTypes": []
+	  }
+	]
+  }
+]
