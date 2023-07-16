@@ -9,7 +9,7 @@ json = "1.5.1"
 slf4j = "2.0.7"
 logback = "1.4.8"
 
-jackson = "2.14.1"
+jackson = "2.15.2"
 
 native-image = "0.9.13"
 native-svm = "22.3.2"
