@@ -1,0 +1,40 @@
+name: Java CI with Gradle
+
+on:
+  push:
+    tags-ignore:
+      - '**'
+    branches:
+      - '**'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/graalvm/native-image:22.3.2
+    steps:
+      - name: Install build essentials
+        run: microdnf install git tar findutils
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - uses: gradle/wrapper-validation-action@v1
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+      - name: Build with Gradle
+        run: ./gradlew build nativeCompile --no-daemon -g ~/.gradle
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifacts
+          path: |
+            build/libs
+            build/native/nativeCompile
