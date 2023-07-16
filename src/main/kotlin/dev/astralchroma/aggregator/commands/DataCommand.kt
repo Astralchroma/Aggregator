@@ -22,7 +22,7 @@ class DataCommand : CommandClass() {
 	@Suppress("Unused")
 	@Subcommand("export", "Exports all Aggregator data")
 	fun onDataExportAllCommand(event: SlashCommandInteractionEvent) {
-		if (event.user.id != Aggregator.botOwnerSnowflake) {
+		if (event.user.idLong != Aggregator.botOwnerSnowflake) {
 			event.replyEmbeds(messageEmbed(description = "You do not have permission to use this command."))
 				.setEphemeral(true)
 				.queue()
@@ -40,7 +40,7 @@ class DataCommand : CommandClass() {
 	@OptIn(ExperimentalSerializationApi::class)
 	@Subcommand("import", "Imports all Aggregator data")
 	fun onDataImportAllCommand(event: SlashCommandInteractionEvent, @Parameter("data", "Data file exported from Aggregator") dataFile: Attachment) {
-		if (event.user.id != Aggregator.botOwnerSnowflake) {
+		if (event.user.idLong != Aggregator.botOwnerSnowflake) {
 			event.replyEmbeds(messageEmbed(description = "You do not have permission to use this command."))
 				.setEphemeral(true)
 				.queue()

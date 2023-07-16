@@ -1,0 +1,10 @@
+{
+  "resources": {
+	"includes": [
+	  {
+		"pattern": "kotlin/kotlin\\.kotlin_builtins"
+	  }
+	],
+	"excludes": []
+  }
+}

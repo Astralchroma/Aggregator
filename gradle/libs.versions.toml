@@ -6,13 +6,31 @@ shadow = "8.1.0"
 webhooks = "0.8.2"
 json = "1.5.0"
 
+slf4j = "2.0.7"
+logback = "1.4.8"
+
+jackson = "2.14.1"
+
+native-image = "0.9.13"
+native-svm = "22.3.1"
+
 [libraries]
 jda = { module = "net.dv8tion:JDA", version.ref = "jda" }
-mongo = { module = "org.litote.kmongo:kmongo", version.ref = "mongo"}
+mongo = { module = "org.litote.kmongo:kmongo-serialization", version.ref = "mongo" }
 webhooks = { module = "club.minnced:discord-webhooks", version.ref = "webhooks" }
 json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "json" }
+
+slf4j = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+native = { module = "org.graalvm.nativeimage:svm", version.ref = "native-svm" }
+
+[bundles]
+native = ["native", "jackson-databind"]
 
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 shadow = { id = "com.github.johnrengelman.shadow", version.ref = "shadow" }
 serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+native = { id = "org.graalvm.buildtools.native", version.ref = "native-image" }
