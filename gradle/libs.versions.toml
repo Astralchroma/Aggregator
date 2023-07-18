@@ -12,7 +12,7 @@ logback = "1.4.8"
 jackson = "2.15.2"
 
 native-image = "0.9.23"
-native-svm = "23.0.0"
+native-svm = "23.0.1"
 
 [libraries]
 jda = { module = "net.dv8tion:JDA", version.ref = "jda" }
