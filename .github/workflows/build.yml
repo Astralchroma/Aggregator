@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/graalvm/native-image:22.3.2
+      image: ghcr.io/graalvm/native-image:22.3.3
     steps:
       - name: Install build essentials
         run: microdnf install git tar findutils -y
