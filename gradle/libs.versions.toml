@@ -11,7 +11,7 @@ logback = "1.4.9"
 
 jackson = "2.15.2"
 
-native-image = "0.9.23"
+native-image = "0.9.24"
 native-svm = "23.0.1"
 
 [libraries]
