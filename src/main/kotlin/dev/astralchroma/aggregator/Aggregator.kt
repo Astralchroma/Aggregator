@@ -31,7 +31,7 @@ import kotlin.system.exitProcess
 
 object Aggregator : ListenerAdapter() {
 	private val logger = LoggerFactory.getLogger(Aggregator::class.java)
-	val startTime = System.currentTimeMillis()
+	var startTime = 0L
 
 	private fun getVariable(name: String): String {
 		val variable = System.getenv(name)
@@ -75,6 +75,8 @@ object Aggregator : ListenerAdapter() {
 
 	@JvmStatic
 	fun main(vararg arguments: String) {
+		startTime = System.currentTimeMillis()
+
 		val token = getVariable("DISCORD_TOKEN")
 		val connectionString = getVariable("MONGO_URI")
 		val databaseName = getVariable("MONGO_DATABASE")
