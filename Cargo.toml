@@ -10,3 +10,6 @@ edition = "2021"
 license = "AGPL-3.0-or-later"
 
 [dependencies]
+poise = "=0.5.6"
+thiserror = "=1.0.49"
+tokio = { version = "=1.33.0", features = [ "full" ] }
