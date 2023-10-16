@@ -1,3 +1,5 @@
+#![deny(clippy::unwrap_used)]
+
 mod misc;
 
 use crate::misc::status;
