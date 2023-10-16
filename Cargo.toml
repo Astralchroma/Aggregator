@@ -1,0 +1,12 @@
+[package]
+name = "aggregator"
+authors = [ "Astralchroma" ]
+description = "A simple bot designed to relay crossposted announcement messages to circumvent Discord's 15 integration per chennl limitation."
+repository = "https://github.com/Astralchroma/Aggregator"
+
+version = "2.0.0"
+edition = "2021"
+
+license = "AGPL-3.0-or-later"
+
+[dependencies]
